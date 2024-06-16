@@ -1,0 +1,21 @@
+<h1>ToDoリスト一覧</h1>
+<ul>
+    {% for todo in todo_list %}
+    <li>{{todo.title}} -- 作成日（{{todo.created_at}}）
+        {% if todo.success %}
+        完了　　
+        {% else %}
+        未完了　　
+        {% endif %}
+        <a href = #>更新</a>  <a href = #>削除</a>
+    </li>
+    {% endfor %}
+</ul>
+<form action = "#" method="post">
+    {% csrf_token %}
+    <fieldset>
+    <legend><h2>新規タスク登録:</h2></legend>
+    <input type="text" size="100">
+    <input type="submit" value = "登録">
+    </fieldset>
+</form>
