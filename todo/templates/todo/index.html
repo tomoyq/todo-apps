@@ -7,7 +7,7 @@
         {% else %}
         未完了　　
         {% endif %}
-        <a href = #>更新</a>  <a href = #>削除</a>
+        <a href = "{% url 'todo:reload' pk=todo.id %}">更新</a>  <a href = #>削除</a>
     </li>
     {% endfor %}
 </ul>
