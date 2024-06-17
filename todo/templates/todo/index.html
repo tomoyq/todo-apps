@@ -7,15 +7,8 @@
         {% else %}
         未完了　　
         {% endif %}
-        <a href = "{% url 'todo:reload' pk=todo.id %}">更新</a>  <a href = #>削除</a>
+        <a href = "{% url 'todo:reload' pk=todo.id %}">更新</a>  <a href = "{% url 'todo:delete' pk=todo.id %}">削除</a>
     </li>
     {% endfor %}
 </ul>
-<form action = "#" method="post">
-    {% csrf_token %}
-    <fieldset>
-    <legend><h2>新規タスク登録:</h2></legend>
-    <input type="text" size="100">
-    <input type="submit" value = "登録">
-    </fieldset>
-</form>
+<h2><a href = "{% url 'todo:regist' %}" >ToDo追加</a></h2>
