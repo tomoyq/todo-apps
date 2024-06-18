@@ -1,10 +1,15 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
 <form method="post">
     {% csrf_token %}
     <h2>このToDoを削除しますか？</h2><br>
     <h1>{{todo.title}}</h1><br>
-    <p>完了状況 --- {% if todo.success %} 完了
+    <p>完了状況 --- <p class = 'success'>{% if todo.success %} 完了
                     {% else %} 未完了
-                    {% endif %}
+                    {% endif %}</p>
     </p><br>
     <input type ='submit' value="削除" >
 </form>
+{% endblock %}

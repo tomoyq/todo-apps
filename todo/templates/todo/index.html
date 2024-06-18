@@ -1,14 +1,17 @@
-<h1>ToDoリスト一覧</h1>
+{% extends 'todo/base.html' %}
+
+{% block content %}
 <ul>
     {% for todo in todo_list %}
     <li>{{todo.title}} -- 作成日（{{todo.created_at}}）
-        {% if todo.success %}
+        <p class = 'success'>{% if todo.success %}
         完了　　
         {% else %}
         未完了　　
-        {% endif %}
+        {% endif %}</p>
         <a href = "{% url 'todo:reload' pk=todo.id %}">更新</a>  <a href = "{% url 'todo:delete' pk=todo.id %}">削除</a>
     </li>
     {% endfor %}
 </ul>
 <h2><a href = "{% url 'todo:regist' %}" >ToDo追加</a></h2>
+{% endblock %}
